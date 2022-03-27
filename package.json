@@ -1,0 +1,24 @@
+{
+  "name": "typescript-learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "lite-server",
+    "ts-compile": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zimablizko/typescript-learning.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zimablizko/typescript-learning/issues"
+  },
+  "homepage": "https://github.com/zimablizko/typescript-learning#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
