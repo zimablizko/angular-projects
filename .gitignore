@@ -2,3 +2,5 @@
 **/dist/*
 **/package-lock.json
 **/.idea/*
+/angular-mat-sandbox/.vscode/*
+/angular-mat-sandbox/.vscode/*
