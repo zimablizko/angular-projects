@@ -1,0 +1,6 @@
+<div class="game">
+  <label>Points: {{points}}</label>
+  <button (click)="rollDice()">Roll</button>
+  <button (click)="resetGame()">Reset</button>
+  <app-dice *ngFor="let dice of diceArray"></app-dice>
+</div>
