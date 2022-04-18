@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "quickstart-1549139600047": {
+      "hosting": {
+        "tic-tac-toe": [
+          "quickstart-1549139600047"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "quickstart-1549139600047"
+  }
+}
