@@ -1,0 +1,10 @@
+.navbar {
+  justify-content: left;
+  gap: 1rem;
+}
+
+.app {
+  /*font-size: 2rem;*/
+  padding: 1rem;
+  text-align: center;
+}

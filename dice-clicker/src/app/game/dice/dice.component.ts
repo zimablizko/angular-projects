@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+
 
 @Component({
   selector: 'app-dice',
@@ -6,13 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dice.component.css']
 })
 export class DiceComponent implements OnInit {
-  diceValue: number;
-  getDiceRoll = () => Math.floor(Math.random() * 6) + 1;
+  @Input() value: number;
 
-  constructor() {
-    console.log(this.diceValue)
-    this.diceValue =  this.getDiceRoll();
-    console.log(this.diceValue)
+  constructor( ) {
+
   }
 
   ngOnInit(): void {

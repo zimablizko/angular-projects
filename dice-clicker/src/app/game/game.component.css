@@ -1,0 +1,17 @@
+.game {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.dice-board {
+  display: flex;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  gap: 1rem;
+}
+
+.main-buttons > button {
+  margin-left: .5rem;
+}

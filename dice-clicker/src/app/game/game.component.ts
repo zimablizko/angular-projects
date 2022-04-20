@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {DiceComponent} from "./dice/dice.component";
+import {Component, OnInit} from '@angular/core';
+import {DiceService} from "./dice/dice.service";
+import {Dice} from "./dice/dice.model";
+import {GameStateService} from "./game-state.service";
+import {GameState} from "./game.model";
 
 @Component({
   selector: 'app-game',
@@ -7,31 +10,33 @@ import {DiceComponent} from "./dice/dice.component";
   styleUrls: ['./game.component.css']
 })
 export class GameComponent implements OnInit {
-  points: number;
-  diceArray: DiceComponent[] = [];
+  diceArray: Dice[];
+  state: GameState;
 
-  constructor() { }
+  get notEmptyDices() {
+    return this.diceArray.filter((dice) => dice.value !== 0)
+  }
+
+  constructor(private diceService: DiceService, private gameStateService: GameStateService) {
+  }
 
   ngOnInit(): void {
+    this.gameStateService.state$.subscribe({
+      next: gameState => this.state = JSON.parse(JSON.stringify(gameState))
+    });
     this.resetGame();
   }
 
-  addPoints(points: number) {
-    this.points += points;
-  }
-
-  rollDice() {
-    const dice = new DiceComponent();
-    let result = 0;
-    this.diceArray = [];
-    this.diceArray.push(dice);
-    result = this.diceArray.reduce((prev, curr) => prev + curr.diceValue, 0)
-    this.addPoints(result);
-    console.log(dice)
+  rollDices() {
+    while (this.diceArray.length < this.state.diceAmount) {
+      this.diceArray.push({value: 0});
+    }
+    let result = this.diceService.getRollResult(this.diceArray);
+    this.gameStateService.addPoints(result);
   }
 
   resetGame() {
-    this.points = 0;
+    this.gameStateService.resetState()
     this.diceArray = [];
   }
 }

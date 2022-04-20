@@ -1,6 +1,14 @@
 <div class="game">
-  <label>Points: {{points}}</label>
-  <button (click)="rollDice()">Roll</button>
-  <button (click)="resetGame()">Reset</button>
-  <app-dice *ngFor="let dice of diceArray"></app-dice>
+  <div>
+    <label class="mat-body-2">Points: {{this.state.points}}</label>
+  </div>
+  <div class="main-buttons">
+    <button mat-raised-button color="primary" (click)="rollDices()">Roll ({{this.state.diceAmount}})</button>
+    <button mat-raised-button color="warn" (click)="resetGame()">Reset</button>
+  </div>
+  <div class="dice-board">
+    <app-dice *ngFor="let dice of notEmptyDices" [value]="dice.value"></app-dice>
+  </div>
+<app-upgrades></app-upgrades>
+
 </div>

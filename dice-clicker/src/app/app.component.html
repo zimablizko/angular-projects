@@ -1,6 +1,10 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/game">Game</a>
-  <a routerLink="/about">About</a>
-</nav>
-<router-outlet></router-outlet>
+<mat-toolbar class="navbar" color="primary">
+  <div>{{title}}</div>
+  <div>
+    <button mat-button routerLink="/game">Game</button>
+    <button mat-button routerLink="/about">About</button>
+  </div>
+</mat-toolbar>
+<div class="app">
+  <router-outlet></router-outlet>
+</div>
